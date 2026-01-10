@@ -1,8 +1,10 @@
 name: practice-cicd
-on: workflow_dispatch
+on: workflow_dispatch # Write to trigger the workflow manually
 jobs:
   hello:
     runs-on: ubuntu-latest
     steps:
      - name: Steps
-       run: echo "Welcome to CI CD Practice"
+       run: |
+         echo "Welcome Ehtsham in the course of COntinuous integration and continuous delivery"
+         echo "In this course you will learn Github Actions"
