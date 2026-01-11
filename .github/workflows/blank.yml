@@ -11,6 +11,13 @@ on:
     branches:
       - main
 jobs:
+  action-demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      - name: Action Demo Steps
+        run: cat index.html
   build:
     runs-on: ubuntu-latest
     steps:
@@ -21,13 +28,11 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
-    needs: build
     steps:
       - name: Testing steps
         run: echo "This is job for testing ${{ secrets.DOCKER_USER_NAME }}"
   deploy:
     runs-on: ubuntu-latest
-    needs: test
     steps:
       - name: Deployment steps
         run: echo "This is job for Deployment ${{ vars.MY_NAME }}"
