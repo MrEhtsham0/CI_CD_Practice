@@ -27,4 +27,4 @@ jobs:
     needs: test
     steps:
       - name: Deployment steps
-        run: echo "This is job for Deployment {{var.MY_NAME}}"
+        run: echo "This is job for Deployment ${{ vars.MY_NAME }}"
