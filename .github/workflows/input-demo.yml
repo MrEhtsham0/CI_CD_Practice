@@ -1,0 +1,22 @@
+name: Env input demo
+on:
+    workflow_dispatch:
+        inputs:
+            environment:
+                description: 'Select the environment'
+                required: true
+                default: 'development'
+                type: choice
+                options:
+                    - development
+                    - staging
+                    - production
+jobs:
+    env-demo:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Repository
+              uses: actions/checkout@v4
+            - name: Environment Demo Steps
+              run: |
+                echo "Deployment the applicaton for ${{inputs.environment}} environment"
