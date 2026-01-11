@@ -17,3 +17,7 @@ jobs:
                   aws-region: ${{ secrets.AWS_REGION }}
             - name: Sync files to S3
               run: echo "This is job for Deployment ${{ secrets.AWS_S3_BUCKET_NAME }}"
+            - name: Copy code to S3
+              run: |
+                aws s3 sync . s3://${{ secrets.AWS_S3_BUCKET_NAME }} --exclude "*" \
+                --include "index.html"
