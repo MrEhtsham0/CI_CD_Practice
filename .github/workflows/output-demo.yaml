@@ -6,9 +6,9 @@ on:
 jobs:
     demo-job:
         runs-on: ubuntu-latest
-    steps:
-        - name: Step 01
-          id: step-01
-          run: echo "DEMO_OUTPUT=Hello from Step 01" >> $GITHUB_OUTPUT
-        - name: Step 02
-          run: echo "Output from Step 01: ${{ steps.step-01.outputs.DEMO_OUTPUT }}"
+        steps:
+            - name: step 01
+              id: step-01
+              run: echo "DEMO_OUTPUT=Hello from Step 01" >> $GITHUB_OUTPUT
+            - name: step-02
+              run: echo "Output from Step 01 ${{ steps.step-01.outputs.DEMO_OUTPUT }}"
