@@ -22,4 +22,4 @@ jobs:
               run: echo "This runs on non-main branches"
             - name: step 05
               if: github.actor == 'MrEhtsham0' || github.repository == 'https://github.com/MrEhtsham0/CI_CD_Practice.git'
-              run: echo "This runs because one of the conditions is true ${{ github.actor }} and  ${{ github.repository }}"
+              run: echo "This runs because one of the conditions is true ${{ github.actor }} and ${{ github.repository }}"

@@ -1,0 +1,24 @@
+name: if-else-condition
+on: 
+    push:
+        branches:
+            - main
+    pull_request:
+        branches:
+            - main
+        types:
+            - opened
+            - synchronize
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        if: github.event_name == 'push' && github.ref_name == 'main'
+        steps:
+            - name: step 01
+              run: echo "This step runs only on push events to the main branch"
+    deploy:
+        runs-on: ubuntu-latest
+        if: github.event_name == 'pull_request'
+        steps:
+            - name: deploy step
+              run: echo "This step runs only for pull requests with '[deploy]' in the title"
