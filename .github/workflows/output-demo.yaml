@@ -12,3 +12,9 @@ jobs:
               run: echo "DEMO_OUTPUT=Hello from Step 01" >> $GITHUB_OUTPUT
             - name: step-02
               run: echo "Output from Step 01 ${{ steps.step-01.outputs.DEMO_OUTPUT }}"
+            - name: step 03
+              if: github.ref == 'refs/heads/main'
+              run: echo "This runs only on main branch"
+            - name: step 04
+              if: github.ref != 'refs/heads/main'
+              run: echo "This runs on non-main branches"
