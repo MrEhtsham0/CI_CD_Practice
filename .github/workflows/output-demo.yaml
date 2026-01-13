@@ -14,7 +14,12 @@ jobs:
               run: echo "Output from Step 01 ${{ steps.step-01.outputs.DEMO_OUTPUT }}"
             - name: step 03
               if: github.ref == 'refs/heads/main'
+              # github.ref_name directly refer to branch name
+              # github.ref directly refer to full ref path
               run: echo "This runs only on main branch"
             - name: step 04
               if: github.ref != 'refs/heads/main'
               run: echo "This runs on non-main branches"
+            - name: step 05
+              if: github.actor == 'MrEhtsham0' || github.repository == 'https://github.com/MrEhtsham0/CI_CD_Practice.git'
+              run: echo "This runs because one of the conditions is true ${{ github.actor }} and  ${{ github.repository }}"
