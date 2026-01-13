@@ -1,0 +1,7 @@
+name: Callalble workflow Example
+on:
+  push:
+
+jobs:
+  callablae-workflow-job:
+    uses: ./.github/workflows/reuseable-workflow.yml
